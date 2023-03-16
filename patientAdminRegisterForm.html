@@ -29,13 +29,23 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="./css/patientAdminLoginForm.css" />
+    <link rel="stylesheet" href="./css/patientAdminRegisterForm.css" />
   </head>
   <body>
-    <h1 id="mainHeading">Welcome to Login Form. Login as Patient or Admin</h1>
+    <h1 id="mainHeading">Please Regiser Yourself</h1>
 
     <div id="formArea">
       <form id="form">
+        <div class="mb-3">
+          <label for="formName" class="form-label">Name</label>
+          <input type="text" class="form-control" id="formName" />
+        </div>
+
+        <div class="mb-3">
+          <label for="formMobile" class="form-label">Mobile Number</label>
+          <input type="text" class="form-control" id="formMobile" />
+        </div>
+
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label"
             >Email address</label
@@ -66,12 +76,8 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-
-      <a href="./patientAdminRegisterForm.html"
-        ><h7>Don't Have a account</h7></a
-      >
     </div>
   </body>
 </html>
 
-<script src="./js/patientAdminLoginForm.js"></script>
+<script src="./js/patientAdminRegisterForm.js"></script>
