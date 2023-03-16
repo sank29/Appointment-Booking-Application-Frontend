@@ -1,14 +1,13 @@
 let form = document.getElementById("form");
 
-console.log("Hiii");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   let url = "http://localhost:8888/login";
 
-  let mobile = document.getElementById("mobile").value;
+  let mobile = document.getElementById("formMobile").value;
 
-  let password = document.getElementById("password").value;
+  let password = document.getElementById("formPassword").value;
 
   let customerDetails = {
     mobileNo: mobile,
@@ -30,4 +29,10 @@ form.addEventListener("submit", async (event) => {
   let uuidKey = data1.uuid;
 
   localStorage.setItem("uuidkey", uuidKey);
+
+  if (uuidKey != undefined) {
+    localStorage.setItem("uuidkey", uuidKey);
+  } else {
+    alert(data1.errorMsg);
+  }
 });

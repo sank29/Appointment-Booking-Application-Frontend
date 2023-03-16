@@ -32,12 +32,15 @@ form.addEventListener("submit", async (event) => {
 
   let data1 = await data.json();
 
+  console.log(data1);
+
   if (!data1.errorMsg) {
     alert(
       "You have succefully register in our database. You are redirecting towards login page"
     );
-    window.location.href = "../patientAdminLoginForm.html";
   } else {
     alert(data1.errorMsg + ". Please login.");
   }
+
+  window.location.href = "../patientAdminLoginForm.html";
 });
