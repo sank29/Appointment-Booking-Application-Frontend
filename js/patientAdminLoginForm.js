@@ -3,7 +3,7 @@ let form = document.getElementById("form");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  // let url = "http://localhost:8888/login";
+  let url = "http://localhost:8888/login";
 
   let mobile = document.getElementById("formMobile").value;
 
