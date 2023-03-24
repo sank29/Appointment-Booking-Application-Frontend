@@ -1,4 +1,5 @@
 ////////////////////////////////check user is login or not/////////////////
+
 let uuid = localStorage.getItem("uuidkey");
 
 let loginORNot = async () => {
@@ -26,17 +27,23 @@ let cardArea = document.getElementById("cardArea");
 let getAllDoctors = async () => {
   let url = `http://localhost:8888//getAllDoctors?key=${uuid}`;
 
+  let ratingUrl = `http://localhost:8888/rating?key=${uuid}`;
+
   let doctorsDetails = await fetch(url);
 
   let data = await doctorsDetails.json();
 
-  renderDoctorsDetails(data);
+  let rating = await await fetch(ratingUrl);
+
+  let ratingData = await rating.json();
+
+  renderDoctorsDetails(data, ratingData);
 };
 
 getAllDoctors();
 
-let renderDoctorsDetails = (data) => {
-  console.log(data);
+let renderDoctorsDetails = (data, rating) => {
+  console.log(rating);
 
   data.forEach((data) => {
     let card = `
@@ -55,8 +62,21 @@ let renderDoctorsDetails = (data) => {
            <p>Location: ${data.location}</p>
            <p>Contact Number: ${data.mobileNo}</p>
            <p>Available from: ${data.appointmentFromTime} (24 hours)</p>
-            <p>Available to: ${data.appointmentToTime} (24 hours)</p>
+           <p>Available to: ${data.appointmentToTime} (24 hours)</p>
         </p>
+
+       <div class = "rating">
+
+          <p class="card-text">Star Rating</p>
+        
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+
+       </div>
+
         <a href="#" class="btn btn-primary">Book Appointment</a>
       </div>
     </div>
