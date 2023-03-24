@@ -45,19 +45,17 @@ let renderDoctorsDetails = (data) => {
       <div class="card-body">
         <h5 class="card-title">${data.name}</h5>
         <p class="card-text">
-           <p>Doctor's education: ${data.education}</p>
-           <p>Doctor's experience: ${data.experience}</p>
+           <p>Education: ${data.education}</p>
+           <p>Experience: ${data.experience}</p>
 
-           <p>Doctor's specialty: ${data.specialty}</p>
-           <p>Doctor's insurance Acceptance: ${
+           <p>Specialty: ${data.specialty}</p>
+           <p>Insurance Acceptance: ${
              data.insuranceAcceptance == true ? "Yes" : "No"
            }</p>
-           <p>Doctor's Location: ${data.location}</p>
-           <p>Doctor's contact Number: ${data.mobileNo}</p>
-           <p>Doctor's Available from: ${
-             data.appointmentFromTime
-           } (24 hours)</p>
-            <p>Doctor's Available to: ${data.appointmentToTime} (24 hours)</p>
+           <p>Location: ${data.location}</p>
+           <p>Contact Number: ${data.mobileNo}</p>
+           <p>Available from: ${data.appointmentFromTime} (24 hours)</p>
+            <p>Available to: ${data.appointmentToTime} (24 hours)</p>
         </p>
         <a href="#" class="btn btn-primary">Book Appointment</a>
       </div>
