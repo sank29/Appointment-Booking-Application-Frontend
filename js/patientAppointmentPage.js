@@ -24,6 +24,8 @@ loginORNot();
 
 let cardArea = document.getElementById("cardArea");
 
+let bookAppointment = document.getElementsByClassName("bookAppointment");
+
 let getAllDoctors = async () => {
   let url = `http://localhost:8888//getAllDoctors?key=${uuid}`;
 
@@ -77,7 +79,7 @@ let renderDoctorsDetails = (data, rating) => {
 
        </div>
 
-        <a href="#" class="btn btn-primary">Book Appointment</a>
+        <button type="button" class="btn btn-primary bookAppointment">Book Appointment</button>
       </div>
     </div>
   `;
