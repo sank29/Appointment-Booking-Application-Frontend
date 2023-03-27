@@ -29,7 +29,7 @@ let bookAppointment = document.getElementsByClassName("bookAppointment");
 let getAllDoctors = async () => {
   let url = `http://localhost:8888//getAllDoctors?key=${uuid}`;
 
-  let ratingUrl = `http://localhost:8888/rating?key=${uuid}`;
+  // let ratingUrl = `http://localhost:8888/rating?key=${uuid}`;
 
   let doctorsDetails = await fetch(url);
 
