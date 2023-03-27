@@ -69,7 +69,7 @@ let renderDoctorsDetails = (data, rating) => {
 
        <div class = "rating">
 
-          <p class="card-text">Star Rating</p>
+          <p class="card-text">Doctor Rating</p>
         
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
