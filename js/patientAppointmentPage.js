@@ -29,7 +29,7 @@ let bookAppointment = document.getElementsByClassName("bookAppointment");
 let getAllDoctors = async () => {
   // let url = `http://localhost:8888//getAllDoctors?key=${uuid}`;
 
-  let ratingUrl = `http://localhost:8888/rating?key=${uuid}`;
+  // let ratingUrl = `http://localhost:8888/rating?key=${uuid}`;
 
   let doctorsDetails = await fetch(url);
 
@@ -69,7 +69,7 @@ let renderDoctorsDetails = (data, rating) => {
 
        <div class = "rating">
 
-          <p class="card-text">Star Rating</p>
+          <p class="card-text">Doctor Rating</p>
         
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
