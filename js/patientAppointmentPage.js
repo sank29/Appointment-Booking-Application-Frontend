@@ -24,8 +24,6 @@ loginORNot();
 
 let cardArea = document.getElementById("cardArea");
 
-let bookAppointment = document.getElementsByClassName("bookAppointment");
-
 let getAllDoctors = async () => {
   // let url = `http://localhost:8888//getAllDoctors?key=${uuid}`;
 
@@ -35,19 +33,17 @@ let getAllDoctors = async () => {
 
   let data = await doctorsDetails.json();
 
-  let rating = await await fetch(ratingUrl);
+  // let rating = await fetch(ratingUrl);
 
-  let ratingData = await rating.json();
+  // let ratingData = await rating.json();        /// rating part not done do this
 
-  renderDoctorsDetails(data, ratingData);
+  renderDoctorsDetails(data);
 };
 
 getAllDoctors();
 
-let renderDoctorsDetails = (data, rating) => {
-  console.log(rating);
-
-  data.forEach((data) => {
+let renderDoctorsDetails = (data) => {
+  data.forEach((data, index) => {
     let card = `
   <div class="card" style="width: 30rem">
       <img src="https://img.freepik.com/free-photo/smiling-touching-arms-crossed-room-hospital_1134-799.jpg" class="card-img-top" alt="..." />
@@ -85,5 +81,26 @@ let renderDoctorsDetails = (data, rating) => {
   `;
 
     cardArea.innerHTML += card;
+  });
+
+  let bookAppointment = document.querySelectorAll(".bookAppointment");
+
+  addEventToButton(bookAppointment, data);
+};
+
+// add event listener to all appointment booking button
+
+// set doctor id .. user click on specific doctor
+
+let addEventToButton = (bookAppointment, data) => {
+  bookAppointment.forEach((eachButton, index) => {
+    eachButton.addEventListener("click", (event) => {
+      console.log(data[index]);
+
+      let doctorData = data[index];
+
+      localStorage.setItem("doctorData", JSON.stringify(doctorData));
+      window.location.href = "../bookAppointmentForm.html";
+    });
   });
 };
