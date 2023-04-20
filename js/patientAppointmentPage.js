@@ -24,6 +24,15 @@ loginORNot();
 
 let cardArea = document.getElementById("cardArea");
 
+////////////////adding navbar//////////////////
+
+import navbar from "../components/navbar.js";
+
+let navabar = document.getElementById("navabar");
+
+navabar.innerHTML = navbar;
+/////////////////end of adding navbar///////////
+
 let getAllDoctors = async () => {
   let url = `http://localhost:8888//getAllDoctors?key=${uuid}`;
 
