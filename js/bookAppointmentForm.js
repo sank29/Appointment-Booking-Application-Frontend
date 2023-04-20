@@ -20,29 +20,103 @@ loginORNot();
 
 ///////////////////////////////////////end of check user is login or not //////////////////
 
-// Create datepicker
-var datepicker = document.getElementById("datepicker");
-var timepicker = document.getElementById("timepicker");
+// get available timing of perticular docotor
 
-flatpickr(datepicker, {
-  enableTime: false,
-  dateFormat: "F j, Y",
-  onChange: function (selectedDates, dateStr, instance) {
-    // Get selected date and time
-    var selectedDate = dateStr;
-    var selectedTime = timepicker.value;
+let doctorDetails =
+  JSON.parse(window.localStorage.getItem("doctorData")) || null;
 
-    // Do something with the selected date and time
-    console.log("Selected date: " + selectedDate);
-    console.log("Selected time: " + selectedTime);
-  },
-});
+let getAvailableTiming = async () => {
+  let url = `http://localhost:8888/availableTiming?key=${uuid}`;
 
-timepicker.addEventListener("change", function () {
-  var selectedDate = datepicker.value;
-  var selectedTime = timepicker.value;
+  let timing = await fetch(url, {
+    method: "POST",
 
-  // Do something with the selected date and time
-  console.log("Selected date: " + selectedDate);
-  console.log("Selected time: " + selectedTime);
-});
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify(doctorDetails),
+  });
+
+  let finalTiming = await timing.json();
+
+  displayAllTiming(finalTiming);
+};
+
+getAvailableTiming();
+
+let displayAllTiming = async (finalTiming) => {
+  let allTiming = document.getElementById("allTiming");
+
+  finalTiming.forEach((element) => {
+    let newDiv = document.createElement("div");
+
+    let para = document.createElement("p");
+
+    para.setAttribute("class", "display-6");
+
+    para.innerText = element;
+
+    newDiv.style.cursor = "pointer";
+    newDiv.setAttribute("class", "allTimings");
+    newDiv.append(para);
+
+    allTiming.append(newDiv);
+  });
+
+  let allTimings = document.getElementsByClassName("allTimings");
+  getPatinetTiming(allTimings);
+};
+
+let getPatinetTiming = (allTimings) => {
+  let allTimingsInArray = [...allTimings];
+
+  allTimingsInArray.forEach((eachTiming) => {
+    eachTiming.addEventListener("click", (event) => {
+      let confirm = window.confirm(
+        `Are you sure to book appointment on ${eachTiming.innerText} of doctor ${doctorDetails.name}`
+      );
+
+      if (confirm) {
+        bookAppointmentFinally(eachTiming);
+        // window.location.reload();
+      }
+    });
+  });
+};
+
+let bookAppointmentFinally = async (eachTiming) => {
+  let url = `http://localhost:8888/bookAppointment?key=${uuid}`;
+
+  let clientDate = {};
+
+  clientDate.appointmentDateAndTime = eachTiming.innerText;
+  clientDate.doctor = doctorDetails;
+
+  let finalData = await fetch(url, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify(clientDate),
+  });
+
+  console.log(finalData);
+
+  let data = await finalData.json();
+
+  console.log(data);
+
+  if (data.errorMsg != undefined) {
+    alert(data.errorMsg);
+  } else {
+    alert(
+      `Your appointment book successfully. ` +
+        `Your appointment id ${data.appointmentId}, doctor name is ${data.doctor.name} at ${eachTiming.innerText}`
+    );
+
+    window.location.reload();
+  }
+};

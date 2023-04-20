@@ -29,23 +29,25 @@
       crossorigin="anonymous"
     ></script>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
-    />
-
     <link rel="stylesheet" href="./css/bookAppointmentForm.css" />
   </head>
   <body>
-    <h1 id="mainHeading" style="text-align: center" class="display-6">
-      Select Data And Time
+    <h1 class="mainHeading display-5" style="text-align: center">
+      Select Date And Time
     </h1>
 
-    <div id="formArea">
-      <div class="calendar">
-        <input type="text" id="datepicker" placeholder="Select date" />
-        <input type="time" id="timepicker" placeholder="Select time" />
-      </div>
+    <!-- <div style="margin-top: 100px; margin-left: 40%" id="formArea">
+      <form action="">
+        <input type="datetime-local" />
+
+        <button type="submit" class="btn btn-primary">Book</button>
+      </form>
+    </div> -->
+
+    <div id="doctorArea">
+      <h1 class="mainHeading display-6">Select Doctor Availiblity</h1>
+
+      <div id="allTiming"></div>
     </div>
   </body>
 </html>
