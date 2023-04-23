@@ -20,6 +20,15 @@ loginORNot();
 
 ///////////////////////////////////////end of check user is login or not //////////////////
 
+////////////////adding navbar//////////////////
+
+import navbar from "../components/navbar.js";
+
+let navabar = document.getElementById("navabar");
+
+navabar.innerHTML = navbar;
+/////////////////end of adding navbar///////////
+
 // get available timing of perticular docotor
 
 let doctorDetails =
