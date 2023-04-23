@@ -3,3 +3,10 @@
     margin-bottom: 10px;
 
 }
+
+#AllAppointmentArea {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+}

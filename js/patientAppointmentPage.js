@@ -43,7 +43,7 @@ let renderDoctorsDetails = (data) => {
   data.forEach((data, index) => {
     let card = `
   <div class="card" style="width: 30rem">
-      <img src="https://img.freepik.com/free-photo/smiling-touching-arms-crossed-room-hospital_1134-799.jpg" class="card-img-top" alt="..." />
+      <img src=${data.doctorImg} class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title">${data.name}</h5>
         <p class="card-text">
