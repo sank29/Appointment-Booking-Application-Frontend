@@ -30,8 +30,6 @@ let getAllAppointment = async () => {
 };
 
 let displayAllAppointment = (allAppointmentData) => {
-  console.log(allAppointmentData);
-
   allAppointmentData.forEach((data) => {
     let html = `
     
@@ -46,12 +44,21 @@ let displayAllAppointment = (allAppointmentData) => {
             <p>Doctor Education: ${data.doctor.education}</p>
             <p>Doctor Specialty: ${data.doctor.specialty}</p>
             <p>Doctor Contact: ${data.doctor.mobileNo}</p>
-            <a class="btn btn-primary updateAppointment">Update Appointment</a>
+            <a id="disable" class="btn btn-primary updateAppointment">Update Appointment</a>
 
         </div>
     </div>`;
 
     allAppointmentArea.innerHTML += html;
+
+    const date = new Date(data.appointmentDateAndTime);
+
+    if (date.getTime() < Date.now()) {
+      document.getElementById("disable").disabled = true;
+      console.log(document.getElementById("disable"));
+    } else {
+      console.log("This date is fature");
+    }
   });
 
   let updateAppointment = document.getElementsByClassName("updateAppointment");
