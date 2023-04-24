@@ -2,3 +2,21 @@
     text-align: center;
     margin-bottom: 10px;
 }
+
+#formArea {
+    width: 50%;
+    margin: auto;
+}
+
+#allRegisterDoctorId{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#allRegisterDoctorId>div{
+   margin: auto;
+   text-align: center;
+}

@@ -17,7 +17,7 @@ let navabar = document.getElementById("navabar");
 navabar.innerHTML = navbar;
 /////////////////end of adding navbar///////////
 
-let AllAppointmentArea = document.getElementById("AllAppointmentArea");
+let allAppointmentArea = document.getElementById("AllAppointmentArea");
 
 let getAllAppointment = async () => {
   let url = `http://localhost:8888/allAppointment?key=${uuid}`;
@@ -46,11 +46,27 @@ let displayAllAppointment = (allAppointmentData) => {
             <p>Doctor Education: ${data.doctor.education}</p>
             <p>Doctor Specialty: ${data.doctor.specialty}</p>
             <p>Doctor Contact: ${data.doctor.mobileNo}</p>
-            <a href="../updateAppointment.html" class="btn btn-primary">Update Appointment</a>
+            <a class="btn btn-primary updateAppointment">Update Appointment</a>
+
         </div>
     </div>`;
 
-    AllAppointmentArea.innerHTML += html;
+    allAppointmentArea.innerHTML += html;
+  });
+
+  let updateAppointment = document.getElementsByClassName("updateAppointment");
+
+  updateAppointment = [...updateAppointment];
+
+  updateAppointment.forEach((eachAppointment, index) => {
+    eachAppointment.addEventListener("click", (event) => {
+      localStorage.setItem(
+        "updateAppointment",
+        JSON.stringify(allAppointmentData[index])
+      );
+
+      window.location.href = "../updateAppointment.html";
+    });
   });
 };
 
