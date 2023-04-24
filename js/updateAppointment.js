@@ -57,7 +57,6 @@ let displayAllDoctors = (data) => {
 };
 
 let displayForm = (updateAppointmentData) => {
-  console.log(updateAppointmentData);
   let html = `
     <form id="form">
         <div class="mb-3">
