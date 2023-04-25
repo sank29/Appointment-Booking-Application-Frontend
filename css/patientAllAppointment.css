@@ -16,3 +16,9 @@
     width: 100%;
     height: 250px
 }
+
+#appointmentFilter{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+}
