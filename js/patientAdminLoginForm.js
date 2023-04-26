@@ -32,8 +32,27 @@ form.addEventListener("submit", async (event) => {
 
   if (uuidKey != undefined) {
     localStorage.setItem("uuidkey", uuidKey);
-    window.location.href = "../patientAppointmentPage.html";
+    let type = await cheakUserIsPatientOrAdmin(uuidKey);
+
+    if (type == "patient") {
+      window.location.href = "../patientAppointmentPage.html";
+    } else {
+      window.location.href = "../doctorRegistrationPage.html";
+    }
   } else {
     alert(data1.errorMsg);
   }
 });
+
+let cheakUserIsPatientOrAdmin = async (uuid) => {
+  let url = `http://localhost:8888//patientDetails?key=${uuid}`;
+  let userDeatils = await fetch(url);
+
+  userDeatils = await userDeatils.json();
+
+  if (userDeatils.type == "patient") {
+    return "patient";
+  } else {
+    return "admin";
+  }
+};

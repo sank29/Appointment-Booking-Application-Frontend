@@ -24,13 +24,7 @@ let html = () => {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../patientAppointmentPage.html">Home</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="../patientAppointmentPage.html">All Doctors</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../patientAllAppointment.html">All Appointments</a>
+          <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
         </li>
 
         <li  class="d-flex">

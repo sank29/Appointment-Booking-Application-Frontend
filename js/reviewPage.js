@@ -22,7 +22,6 @@ let reviewAppointment =
   JSON.parse(localStorage.getItem("reviewAppointment")) || null;
 
 let displayForm = async (databaseReview) => {
-  console.log(databaseReview);
   let html;
   if (databaseReview == null || databaseReview.reviewContent == undefined) {
     html = `
