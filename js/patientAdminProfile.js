@@ -33,14 +33,38 @@ let displayProfile = () => {
   let email = document.createElement("p");
   email.innerText = `Email Address: ${patientProfile.email}`;
 
-  let button = document.createElement("button");
-  button.setAttribute("class", "btn btn-primary btn-lg");
-  button.setAttribute("type", "button");
-  button.style.marginTop = "10px";
+  let updateButton = document.createElement("button");
+  updateButton.setAttribute("class", "btn btn-primary btn-lg");
+  updateButton.setAttribute("type", "button");
+  updateButton.style.marginLeft = "10px";
+  updateButton.innerText = "Update profile";
 
-  button.innerText = "Update profile";
+  let logoutButton = document.createElement("button");
+  logoutButton.setAttribute("class", "btn btn-danger btn-lg");
+  logoutButton.setAttribute("type", "button");
+  logoutButton.style.marginLeft = "10px";
+  logoutButton.innerText = "Logout";
 
-  profileDeatils.append(name, mobileNumber, email, button);
+  profileDeatils.append(name, mobileNumber, email, updateButton, logoutButton);
+
+  logoutButton.addEventListener("click", async (event) => {
+    let url = `http://localhost:8888/logout?key=${uuid}`;
+    let data = await fetch(url, {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    localStorage.removeItem("uuidkey");
+
+    alert("Logout successful");
+
+    console.log(data);
+
+    window.location.href = "../index.html";
+  });
 };
 
 displayProfile();
