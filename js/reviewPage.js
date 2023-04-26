@@ -20,6 +20,7 @@ navabar.innerHTML = navbar;
 let formArea = document.getElementById("formArea");
 let reviewAppointment =
   JSON.parse(localStorage.getItem("reviewAppointment")) || null;
+let reviewId;
 
 let displayForm = async (databaseReview) => {
   let html;
@@ -107,6 +108,7 @@ let displayForm = async (databaseReview) => {
 
       reviewAppointment.reviewContent = reviewContent;
       reviewAppointment.rating = rating;
+      reviewAppointment.reviewId = reviewId;
 
       updateReview(reviewAppointment);
       window.location.reload();
@@ -153,6 +155,8 @@ let getReview = async (reviewAppointment) => {
   reviewDataPresentInDatabase = await reviewDataPresentInDatabase.json();
   console.log(reviewDataPresentInDatabase);
 
+  reviewId = reviewDataPresentInDatabase.reviewId;
+
   return reviewDataPresentInDatabase;
 };
 
@@ -179,6 +183,8 @@ let displayReviewOnPage = (databaseReview) => {
 
 let updateReview = async (updateReview) => {
   let url = `http://localhost:8888/updateReview?key=${uuid}`;
+
+  console.log(updateReview);
 
   let updatedReview = await fetch(url, {
     method: "PUT",
