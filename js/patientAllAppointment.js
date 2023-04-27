@@ -56,7 +56,7 @@ let displayAllAppointment = (allAppointmentData) => {
               <p>Doctor Specialty: ${data.doctor.specialty}</p>
               <p>Doctor Contact: ${data.doctor.mobileNo}</p>
               <a id="disable" class="btn btn-primary upcommingAppointmentButton">Update Appointment</a>
-
+               <a id="disable" class="btn btn-danger deleteAppointmentButton">Delete Appointment</a>
           </div>
       </div>`;
     } else {
@@ -78,16 +78,9 @@ let displayAllAppointment = (allAppointmentData) => {
     }
 
     allAppointmentArea.innerHTML += html;
-
-    const date = new Date(data.appointmentDateAndTime);
-
-    if (date.getTime() < Date.now()) {
-      document.getElementById("disable").disabled = true;
-      // console.log(document.getElementById("disable"));
-    } else {
-      // console.log("This date is fature");
-    }
   });
+
+  // upcomming appointment
 
   let upcommingAppointmentButton = document.getElementsByClassName(
     "upcommingAppointmentButton"
@@ -106,6 +99,8 @@ let displayAllAppointment = (allAppointmentData) => {
     });
   });
 
+  // past Appointment
+
   let pastAppoinmentButton = document.getElementsByClassName(
     "pastAppoinmentButton"
   );
@@ -116,6 +111,41 @@ let displayAllAppointment = (allAppointmentData) => {
     eachAppointment.addEventListener("click", (event) => {
       setObjectForReview(allAppointmentData[index]);
       window.location.href = "../reviewPage.html";
+    });
+  });
+
+  // delete appointment
+
+  let deleteAppointmentButton = document.getElementsByClassName(
+    "deleteAppointmentButton"
+  );
+
+  deleteAppointmentButton = [...deleteAppointmentButton];
+
+  deleteAppointmentButton.forEach((eachAppointment, index) => {
+    eachAppointment.addEventListener("click", async (event) => {
+      let result = confirm("Are sure to delete appointment");
+
+      if (result) {
+        let url = `http://localhost:8888//appointment?key=${uuid}`;
+
+        let data = await fetch(url, {
+          method: "DELETE",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(allAppointmentData[index]),
+        });
+
+        data = await data.json();
+
+        localStorage.removeItem("updateAppointment");
+        getAllAppointment();
+      }
+
+      // window.location.href = "../updateAppointment.html";
     });
   });
 };
