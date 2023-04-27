@@ -158,61 +158,6 @@ let filterAppointment = (data, filterValue) => {
   return filterData;
 };
 
-// set object in form of review object
-// {
-//   "reviewId": 0,
-//   "patient": {
-//     "patientId": 1,
-//     "name": "string",
-//     "mobileNo": "4232283410",
-//     "password": "string",
-//     "email": "string",
-//     "type": "string"
-//   },
-//   "doctor": {
-//     "doctorId": 3,
-//     "mobileNo": "string",
-//     "password": "string",
-//     "name": "string",
-//     "specialty": "string",
-//     "location": "string",
-//     "insuranceAcceptance": true,
-//     "education": "string",
-//     "experience": "string",
-//     "appointmentFromTime": 0,
-//     "appointmentToTime": 0,
-//     "type": "string"
-//   },
-//   "appointment": {
-//     "appointmentId": 2,
-//     "patient": {
-//       "patientId": 6,
-//       "name": "string",
-//       "mobileNo": "0632822143",
-//       "password": "string",
-//       "email": "string",
-//       "type": "string"
-//     },
-//     "appointmentDateAndTime": "2023-03-22T06:01:45.234Z",
-//     "doctor": {
-//       "doctorId": 3,
-//       "mobileNo": "string",
-//       "password": "string",
-//       "name": "string",
-//       "specialty": "string",
-//       "location": "string",
-//       "insuranceAcceptance": true,
-//       "education": "string",
-//       "experience": "string",
-//       "appointmentFromTime": 0,
-//       "appointmentToTime": 0,
-//       "type": "string"
-//     }
-//   },
-//   "reviewContent": "This doctor is very nice. Please book his appointments. Thank You !!!!",
-//   "rating": 3
-// }
-
 let setObjectForReview = (allAppointmentData) => {
   let reviewObject = {};
 
