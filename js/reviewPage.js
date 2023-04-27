@@ -136,6 +136,8 @@ let giveReview = async (reviewObject) => {
 
   if (reviewData.errorMsg != undefined) {
     alert(reviewData.errorMsg);
+  } else {
+    displayData();
   }
 };
 
