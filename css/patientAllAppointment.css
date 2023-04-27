@@ -8,7 +8,7 @@
     gap: 10px;
     display: flex;
     flex-wrap: wrap;
-
+    margin-bottom: 20px;
 }
 
 
@@ -21,4 +21,8 @@
     width: 50%;
     margin: auto;
     margin-bottom: 20px;
+}
+
+.deleteAppointmentButton{
+    margin-top: 20px;
 }
