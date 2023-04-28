@@ -39,6 +39,25 @@ let getAllAppointment = async () => {
 let displayAllAppointment = (allAppointmentData) => {
   allAppointmentArea.innerHTML = "";
 
+  if (allAppointmentData.length == 0) {
+    allAppointmentArea.style.width = "50%";
+    allAppointmentArea.style.margin = "auto";
+
+    let p = document.createElement("p");
+    p.innerText = "No Upcoming Appointments. Please book an appointment.";
+    p.style.margin = "auto";
+
+    allAppointmentArea.append(p);
+
+    console.log("HIIIIIIII");
+
+    return;
+  }
+  // neutral all properties
+
+  allAppointmentArea.style.width = "";
+  allAppointmentArea.style.margin = "";
+
   allAppointmentData.forEach((data) => {
     let html = "";
 
@@ -141,7 +160,9 @@ let displayAllAppointment = (allAppointmentData) => {
 
         data = await data.json();
 
-        localStorage.removeItem("updateAppointment");
+        console.log(data);
+
+        // localStorage.removeItem("updateAppointment");
         getAllAppointment();
       }
 
