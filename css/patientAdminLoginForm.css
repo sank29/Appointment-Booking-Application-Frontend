@@ -8,3 +8,13 @@
     text-align: center;
     margin-bottom: 10px;
 }
+
+#DontHaveAccount{
+    display:block;
+    margin-top: 20px;
+}
+
+#forgetPassword{
+    display: block;
+    margin-top: 20px;
+}

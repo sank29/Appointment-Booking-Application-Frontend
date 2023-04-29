@@ -22,8 +22,6 @@ let profileDeatils = document.getElementById("profileDeatils");
 let patientProfile = JSON.parse(localStorage.getItem("patientDeatils")) || null;
 
 let displayProfile = () => {
-  console.log(patientProfile);
-
   let name = document.createElement("p");
   name.innerText = `Name: ${patientProfile.name}`;
 
@@ -37,7 +35,7 @@ let displayProfile = () => {
   updateButton.setAttribute("class", "btn btn-primary btn-lg");
   updateButton.setAttribute("type", "button");
   updateButton.style.marginLeft = "10px";
-  updateButton.innerText = "Update profile";
+  updateButton.innerText = "Forget Password";
 
   let logoutButton = document.createElement("button");
   logoutButton.setAttribute("class", "btn btn-danger btn-lg");
@@ -61,9 +59,11 @@ let displayProfile = () => {
 
     alert("Logout successful");
 
-    console.log(data);
-
     window.location.href = "../index.html";
+  });
+
+  updateButton.addEventListener("click", (event) => {
+    window.location.href = "../forgetPasswordPage.html";
   });
 };
 
