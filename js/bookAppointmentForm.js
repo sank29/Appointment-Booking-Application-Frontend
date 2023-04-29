@@ -37,6 +37,8 @@ let getAvailableTiming = async () => {
 
   let finalTiming = await timing.json();
 
+  console.log(finalTiming);
+
   displayAllTiming(finalTiming);
 };
 

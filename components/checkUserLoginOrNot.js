@@ -12,8 +12,6 @@ let loginORNot = async () => {
 
     window.location.href = "../index.html";
   }
-
-  console.log(data);
 };
 
 export default loginORNot;
