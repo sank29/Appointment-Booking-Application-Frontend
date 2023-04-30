@@ -55,6 +55,11 @@ let displayForm = async (databaseReview) => {
                 <div class="mb-3">
                 <label for="reviewContent" class="form-label">Review</label>
                 <input
+                     type="hidden"
+                     id="reviewId"
+                     value="${databaseReview.reviewId}"
+                />
+                <input
                     type="text"
                     class="form-control"
                     id="reviewContent"
@@ -69,6 +74,10 @@ let displayForm = async (databaseReview) => {
 
                 <button id="formButton" type="submit" class="btn btn-primary">
                 Update Review
+                </button>
+
+                <button id="deleteReview" type="button" class="btn btn-danger">
+                Delete Review
                 </button>
             </form>
 
@@ -114,6 +123,22 @@ let displayForm = async (databaseReview) => {
       window.location.reload();
     });
   }
+
+  let deleteReviewButton = document.getElementById("deleteReview");
+
+  if (deleteReviewButton != null) {
+    deleteReviewButton.addEventListener("click", (event) => {
+      let confirmation = confirm(
+        "Are you sure, you want to delete the review?"
+      );
+
+      if (confirmation) {
+        let reviewId = document.getElementById("reviewId").value;
+
+        console.log(reviewId);
+      }
+    });
+  }
 };
 
 let giveReview = async (reviewObject) => {
@@ -130,7 +155,6 @@ let giveReview = async (reviewObject) => {
   });
 
   reviewData = await reviewData.json();
-  console.log(reviewData);
 
   localStorage.setItem("reviewAppointment", JSON.stringify(reviewData));
 
@@ -155,7 +179,6 @@ let getReview = async (reviewAppointment) => {
   });
 
   reviewDataPresentInDatabase = await reviewDataPresentInDatabase.json();
-  console.log(reviewDataPresentInDatabase);
 
   reviewId = reviewDataPresentInDatabase.reviewId;
 

@@ -31,11 +31,11 @@ let displayProfile = () => {
   let email = document.createElement("p");
   email.innerText = `Email Address: ${patientProfile.email}`;
 
-  let updateButton = document.createElement("button");
-  updateButton.setAttribute("class", "btn btn-primary btn-lg");
-  updateButton.setAttribute("type", "button");
-  updateButton.style.marginLeft = "10px";
-  updateButton.innerText = "Forget Password";
+  let changePassword = document.createElement("button");
+  changePassword.setAttribute("class", "btn btn-primary btn-lg");
+  changePassword.setAttribute("type", "button");
+  changePassword.style.marginLeft = "10px";
+  changePassword.innerText = "Change Password";
 
   let logoutButton = document.createElement("button");
   logoutButton.setAttribute("class", "btn btn-danger btn-lg");
@@ -43,7 +43,13 @@ let displayProfile = () => {
   logoutButton.style.marginLeft = "10px";
   logoutButton.innerText = "Logout";
 
-  profileDeatils.append(name, mobileNumber, email, updateButton, logoutButton);
+  profileDeatils.append(
+    name,
+    mobileNumber,
+    email,
+    changePassword,
+    logoutButton
+  );
 
   logoutButton.addEventListener("click", async (event) => {
     let url = `http://localhost:8888/logout?key=${uuid}`;
@@ -62,7 +68,7 @@ let displayProfile = () => {
     window.location.href = "../index.html";
   });
 
-  updateButton.addEventListener("click", (event) => {
+  changePassword.addEventListener("click", (event) => {
     window.location.href = "../forgetPasswordPage.html";
   });
 };
