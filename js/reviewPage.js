@@ -129,7 +129,7 @@ let displayForm = async (databaseReview) => {
   if (deleteReviewButton != null) {
     deleteReviewButton.addEventListener("click", (event) => {
       let confirmation = confirm(
-        "Are you sure, you want to delete the review?"
+        "Are you sure, you want to delete the review ?"
       );
 
       if (confirmation) {
