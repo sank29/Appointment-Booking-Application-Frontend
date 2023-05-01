@@ -127,15 +127,38 @@ let displayForm = async (databaseReview) => {
   let deleteReviewButton = document.getElementById("deleteReview");
 
   if (deleteReviewButton != null) {
-    deleteReviewButton.addEventListener("click", (event) => {
+    deleteReviewButton.addEventListener("click", async (event) => {
       let confirmation = confirm(
         "Are you sure, you want to delete the review ?"
       );
 
       if (confirmation) {
+        let review = {};
+
         let reviewId = document.getElementById("reviewId").value;
 
-        console.log(reviewId);
+        review.reviewId = reviewId;
+
+        let url = `http://localhost:8888/review?key=${uuid}`;
+
+        let data = await fetch(url, {
+          method: "DELETE",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(review),
+        });
+
+        data = await data.json();
+
+        if (data.errorMsg != undefined) {
+          alert(data.errorMsg);
+        } else {
+          alert("Review Delete Successfully");
+          window.location.reload();
+        }
       }
     });
   }

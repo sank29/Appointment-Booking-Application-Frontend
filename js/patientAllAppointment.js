@@ -75,7 +75,7 @@ let displayAllAppointment = (allAppointmentData) => {
               <p>Doctor Specialty: ${data.doctor.specialty}</p>
               <p>Doctor Contact: ${data.doctor.mobileNo}</p>
               <a id="disable" class="btn btn-primary upcommingAppointmentButton">Update Appointment</a>
-               <a id="disable" class="btn btn-danger deleteAppointmentButton">Delete Appointment</a>
+              <a id="disable" class="btn btn-danger deleteAppointmentButton">Delete Appointment</a>
           </div>
       </div>`;
     } else {
