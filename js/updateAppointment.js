@@ -44,7 +44,7 @@ let displayAllDoctors = (data) => {
     let div = document.createElement("div");
 
     let doctorName = document.createElement("p");
-    doctorName.innerText = eachDoctor.name + ":";
+    doctorName.innerText = "Doctor Id of " + eachDoctor.name + ":";
 
     let doctorId = document.createElement("p");
     doctorId.innerText = eachDoctor.doctorId;
