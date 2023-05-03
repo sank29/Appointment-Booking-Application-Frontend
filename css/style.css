@@ -1,0 +1,18 @@
+#patientLogo{
+    width: 15%;
+    height: 200px;
+    cursor: pointer;
+}
+
+#doctorLogo{
+    width: 15%;
+    height: 200px;
+    cursor: pointer;
+}
+
+#logos{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    margin-top: 20px;
+}

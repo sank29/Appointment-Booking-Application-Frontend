@@ -40,9 +40,10 @@ let displayForm = () => {
               <input type="text" class="form-control" id="confirmNewPassword" />
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>            
 
         </form>
+        <a id="DontHaveAccount" href="../patientAdminProfile.html"><h7>Return Back</h7></a>
 
     `;
 
