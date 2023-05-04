@@ -1,6 +1,6 @@
 let uuid = localStorage.getItem("uuidkey");
 
-let patientDeatils = JSON.parse(localStorage.getItem("patientDeatils")) || null;
+let doctorDeatils = JSON.parse(localStorage.getItem("patientDeatils")) || null;
 
 let getPatinetDetails = async () => {
   let url = `http://localhost:8888//getDoctorDetails?key=${uuid}`;
@@ -17,7 +17,7 @@ getPatinetDetails();
 let html = () => {
   return `<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Book Docs</a>
+   <img href="#" id="navbarLogo" src="../img/online-doctor-appointment.svg" alt="" />
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,7 +28,7 @@ let html = () => {
         </li>
 
         <li  class="d-flex">
-          <a class="nav-link float-end " href="../patientAdminProfile.html">Welcome ${patientDeatils.name}</a>
+          <a class="nav-link float-end " href="../patientAdminProfile.html"><b>Welcome ${doctorDeatils.name} Doctor</b></a>
         </li>
       </ul>
     </div>

@@ -36,11 +36,10 @@ form.addEventListener("submit", async (event) => {
 
   if (!data1.errorMsg) {
     alert(
-      "You have succefully register in our database. You are redirecting towards login page"
+      "You have succefully register in our database. You are redirecting towards login page."
     );
+    window.location.href = "../patientAdminLoginForm.html";
   } else {
-    alert(data1.errorMsg + ". Please login.");
+    alert(data1.errorMsg);
   }
-
-  window.location.href = "../patientAdminLoginForm.html";
 });
