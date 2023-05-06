@@ -35,7 +35,7 @@ let html = () => {
         </li>
 
         <li  class="d-flex">
-          <a class="nav-link float-end " href="../patientAdminProfile.html">Welcome ${patientDeatils.name}</a>
+          <a class="nav-link float-end " href="../patientAdminProfile.html"><b>Welcome ${patientDeatils.name}</b></a>
         </li>
       </ul>
     </div>
