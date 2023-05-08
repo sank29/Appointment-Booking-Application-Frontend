@@ -34,6 +34,10 @@ let html = () => {
           <a class="nav-link" href="../patientAllAppointment.html">All Appointments</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="../patientAllDoctorsListForChat.html">Chat Room</a>
+        </li>
+
         <li  class="d-flex">
           <a class="nav-link float-end " href="../patientAdminProfile.html"><b>Welcome ${patientDeatils.name}</b></a>
         </li>
