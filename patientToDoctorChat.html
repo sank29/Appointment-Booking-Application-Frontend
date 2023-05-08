@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main Page</title>
+    <title>Patient to Doctor chat</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -12,6 +17,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -29,19 +35,18 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Navbar link -->
+
+    <link rel="stylesheet" href="./css/navbar.css" />
+
+    <link rel="stylesheet" href="./css/patientToDoctorChat.css" />
   </head>
   <body>
-    <h1 style="text-align: center" class="display-5">
-      Welcome to Login Page of Appointment Booking Appplication
-    </h1>
-    <h2 style="text-align: center" class="display-6">Choose Account Type</h2>
+    <div id="navabar"></div>
+    <h1 id="mainHeading" class="display-6">Chat Room</h1>
 
-    <div id="logos">
-      <img id="patientLogo" src="./img/patient.svg" alt="Patient Logo" />
-      <img id="doctorLogo" src="./img/doctor.svg" alt="Admin Logo" />
-    </div>
+    <div id="chatArea"></div>
   </body>
 </html>
 
-<script type="module" src="./js/script.js"></script>
+<script type="module" src="./js/patientToDoctorChat.js"></script>
