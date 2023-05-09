@@ -13,5 +13,12 @@
     margin-bottom: 20px;
 
     overflow: scroll;
-        box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+.message{
+    background-color: pink;
+    /* border: 1px solid red; */
+    /* display: inline; */
+}
+
