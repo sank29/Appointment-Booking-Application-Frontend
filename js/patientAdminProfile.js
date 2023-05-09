@@ -61,11 +61,14 @@ let displayProfile = () => {
       },
     });
 
-    localStorage.removeItem("uuidkey");
+    let confirmation = confirm("Are you sure to Logout");
+    if (confirmation) {
+      localStorage.removeItem("uuidkey");
 
-    alert("Logout successful");
+      alert("Logout successful");
 
-    window.location.href = "../index.html";
+      window.location.href = "../index.html";
+    }
   });
 
   changePassword.addEventListener("click", (event) => {
