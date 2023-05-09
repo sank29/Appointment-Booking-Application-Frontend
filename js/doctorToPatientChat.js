@@ -38,7 +38,7 @@ let diplayChats = async () => {
 
   let sendButton = document.createElement("button");
   sendButton.innerText = "Send";
-  sendButton.style.marginTop = "615px";
+  sendButton.style.marginTop = "100px";
   sendButton.setAttribute("id", "sendMessage");
   sendButton.style.backgroundColor = "blue";
   sendButton.style.color = "white";
