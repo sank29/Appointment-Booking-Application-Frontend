@@ -48,12 +48,18 @@ let diplayChats = async () => {
   messageData.forEach((eachMessage) => {
     let message = document.createElement("p");
     message.innerHTML = eachMessage.messageContent;
+    message.setAttribute("class", "message");
+
+    let time = document.createElement("p");
+    time.innerHTML = formatTime(eachMessage.messageTimeAndDate);
+    time.setAttribute("class", "time");
 
     if (chatDoctorInfo.doctorId == eachMessage.receiver) {
       message.style.marginLeft = "700px";
+      time.style.marginLeft = "700px";
     }
 
-    messageDiv.append(message);
+    messageDiv.append(message, time);
   });
 
   chatArea.append(doctorName, messageDiv, inputMessage, sendButton);
@@ -121,3 +127,12 @@ let sendMessage = async (messageContent) => {
 };
 
 diplayChats();
+
+let formatTime = (time) => {
+  const datetime = new Date(time);
+
+  const hours = datetime.getHours(); // get the hours component (0-23)
+  const minutes = datetime.getMinutes(); // get the minutes component (0-59)
+
+  return `${hours}:${minutes}`; // format the time string
+};
