@@ -38,7 +38,6 @@ let diplayChats = async () => {
 
   let sendButton = document.createElement("button");
   sendButton.innerText = "Send";
-  // sendButton.style.marginTop = "615px";
   sendButton.style.marginTop = "100px";
   sendButton.setAttribute("id", "sendMessage");
   sendButton.style.backgroundColor = "blue";
@@ -50,14 +49,17 @@ let diplayChats = async () => {
     let message = document.createElement("p");
     message.innerHTML = eachMessage.messageContent;
     message.setAttribute("class", "message");
+    message.style.display = "inline";
+    message.style.borderRadius = "10px";
 
     let time = document.createElement("p");
     time.innerHTML = formatTime(eachMessage.messageTimeAndDate);
     time.setAttribute("class", "time");
 
     if (chatDoctorInfo.doctorId == eachMessage.receiver) {
-      message.style.marginLeft = "700px";
-      time.style.marginLeft = "700px";
+      message.style.marginLeft = "600px";
+      message.style.borderRadius = "10px";
+      time.style.marginLeft = "600px";
     }
 
     messageDiv.append(message, time);
