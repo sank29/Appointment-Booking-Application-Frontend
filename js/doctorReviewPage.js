@@ -37,6 +37,8 @@ let getReview = async (reviewAppointment) => {
   reviewDataPresentInDatabase = await reviewDataPresentInDatabase.json();
   reviewId = reviewDataPresentInDatabase.reviewId;
 
+  console.log(reviewAppointment);
+
   return reviewDataPresentInDatabase;
 };
 
@@ -47,8 +49,6 @@ let displayData = async () => {
 };
 
 let displayReviewOnPage = (databaseReview) => {
-  console.log(databaseReview);
-
   let reviewArea = document.getElementById("reviewArea");
 
   if (databaseReview.errorMsg != undefined) {
